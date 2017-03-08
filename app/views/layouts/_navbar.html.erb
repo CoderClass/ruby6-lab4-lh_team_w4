@@ -1,0 +1,18 @@
+<nav class="navbar navbar-light bg-faded navbar-toggleable-md">
+  <a class="navbar-brand" href="/">Navbar</a>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <% if signed_in? %>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= logout_path %>">Log out</a>
+      </li>
+    <% else %>
+      <%= form_tag login_path do %>
+        <%= text_field_tag :username, nil, placeholder: 'Username' %>
+        <%= submit_tag 'Log in', class: 'btn btn-primary' %>
+      <% end %>
+    <% end %>
+  </ul>
+</nav>
