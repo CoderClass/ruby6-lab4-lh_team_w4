@@ -1,10 +1,12 @@
 <h1>Welcome</h1>
 <% @rooms.each do |room| %>
   <p><strong><%= room.name %></strong></p>
+  <%= link_to 'Join', room_messages_path(room), class: 'btn btn-sm btn-primary' %>
 <% end %><br><br>
 
-<%= form_for @room do |f| %>
-  <%= f.text_field :name, placeholder: "Fill room name" ,class: 'form-control' %><br>
 
-  <%= f.submit "Create Room",  class: "btn btn-success" %>
-<% end %>
+  <%= form_for @room do |f| %>
+    <%= f.text_field :name, placeholder: "Fill room name" ,class: 'form-control' %><br>
+
+    <%= f.submit "Create Room",  class: "btn btn-success" %>
+  <% end %>

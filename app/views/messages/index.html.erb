@@ -1,0 +1,10 @@
+<h1>Welcome to <%= @room.name %> room</h1>
+<% @messages.each do |message| %>
+  <p><strong><%= message.username %> : </strong><%= message.body %></p>
+<% end %><br><br>
+
+  <%= form_for [@room, Message.new] do |f| %>
+    <%= f.text_field :username, placeholder: "Your Name" ,class: 'form-control', required: true %><br>
+    <%= f.text_field :body, placeholder: "Your Message" ,class: 'form-control' %><br>
+    <%= f.submit "Send",  class: "btn btn-success" %>
+  <% end %>
