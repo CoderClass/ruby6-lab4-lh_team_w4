@@ -1,2 +1,10 @@
 <h1>Welcome</h1>
-<p>This is a basic chat app</p>
+<% @rooms.each do |room| %>
+  <p><strong><%= room.name %></strong></p>
+<% end %><br><br>
+
+<%= form_for @room do |f| %>
+  <%= f.text_field :name, placeholder: "Fill room name" ,class: 'form-control' %><br>
+
+  <%= f.submit "Create Room",  class: "btn btn-success" %>
+<% end %>
